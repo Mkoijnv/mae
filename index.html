@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio - Professora Pedagoga</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: #0073e6; /* Azul */
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        nav {
+            background-color: #000; /* Preto */
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1.1em;
+        }
+        nav a:hover {
+            color: #0073e6; /* Azul */
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        .profile-img {
+            display: block;
+            margin: 0 auto;
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+        }
+        h2 {
+            color: #0073e6; /* Azul */
+            text-align: center;
+        }
+        p {
+            line-height: 1.6;
+            text-align: justify;
+        }
+        .experience, .education, .skills, .contact {
+            margin-bottom: 20px;
+        }
+        .experience h3, .education h3, .skills h3, .contact h3 {
+            color: #0073e6; /* Azul */
+        }
+        .emoji {
+            font-size: 1.5em;
+            margin-right: 10px;
+        }
+        .contact a {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #0073e6; /* Azul */
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .contact a:hover {
+            background-color: #005bb5; /* Azul mais escuro */
+        }
+        .carousel {
+            position: relative;
+            width: 100%;
+            max-width: 400px; /* Carrossel menor */
+            margin: 20px auto;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+        .carousel img {
+            width: 100%;
+            display: none;
+            border-radius: 8px;
+        }
+        .carousel img.active {
+            display: block;
+        }
+        .carousel-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+        .carousel-button.prev {
+            left: 10px;
+        }
+        .carousel-button.next {
+            right: 10px;
+        }
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background-color: #000; /* Preto */
+            color: white;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Olá! Sou Marcilene Lima 📚👩‍🏫</h1>
+    </header>
+
+    <nav>
+        <a href="#experience">Experiência</a>
+        <a href="#education">Formação</a>
+        <a href="#skills">Habilidades</a>
+        <a href="#contact">Contato</a>
+    </nav>
+
+    <div class="container">
+        <!-- Foto da professora atualizada -->
+        <img src="WhatsApp Image 2025-01-29 at 20.55.21.jpeg" alt="Foto da Professora" class="profile-img">
+        
+        <h2 id="experience">Experiência Profissional 🏫</h2>
+        <div class="experience">
+            <h3>Professora de Educação Infantil (2012-2014)</h3>
+            <p><strong>Colégio Sapiens - Colégio Cristão (2020-2024)</strong></p>
+            <ul>
+                <li>Desenvolveu e implementou planos de aula baseados em abordagens pedagógicas modernas.</li>
+                <li>Avaliou o progresso dos alunos, adaptando estratégias para atender às necessidades individuais.</li>
+                <li>Fomentou um ambiente de aprendizado positivo, promovendo a interação e o respeito entre os alunos.</li>
+            </ul>
+
+            <h3>Professora de Educação Fundamental I (2014-2022)</h3>
+            <p><strong>Escola Cora Coralina</strong></p>
+            <ul>
+                <li>Liderou e avaliou o progresso no desenvolvimento e implementação de ensino-aprendizagem dos alunos.</li>
+                <li>Adaptou estratégias, promovendo o desenvolvimento profissional contínuo.</li>
+                <li>Colaborou com pais e responsáveis para fortalecer a parceria escola-família.</li>
+            </ul>
+
+            <h3>Recepção e Atendimento</h3>
+            <p><strong>Datelli Shopping - Clínica Zequinha Araújo</strong></p>
+            <ul>
+                <li>Experiência em atendimento ao cliente e gerenciamento de fluxo de visitantes.</li>
+                <li>Proficiente em sistemas de agendamento e comunicação eficaz.</li>
+            </ul>
+        </div>
+
+        <h2 id="education">Formação Acadêmica 🎓</h2>
+        <div class="education">
+            <h3>Licenciatura em Pedagogia (2008-2012)</h3>
+            <p><strong>FARO - Faculdade de Rondônia</strong></p>
+
+            <h3>Pós-Graduação em Metodologia do Ensino Superior (2012-2013)</h3>
+            <p><strong>Faculdade Católica</strong></p>
+
+            <h3>Acadêmica do Curso de Fisioterapia (2025)</h3>
+        </div>
+
+        <h2 id="skills">Habilidades 🛠️</h2>
+        <div class="skills">
+            <ul>
+                <li><strong>Planejamento Curricular:</strong> Experiência em elaboração e implementação de planos de aula.</li>
+                <li><strong>Gestão de Sala de Aula:</strong> Habilidade em criar ambientes de aprendizado positivos.</li>
+                <li><strong>Desenvolvimento Socioemocional:</strong> Compromisso com o bem-estar emocional e social dos alunos.</li>
+                <li><strong>Trabalho em Equipe:</strong> Colaboração eficaz com colegas, pais e responsáveis.</li>
+            </ul>
+        </div>
+
+        <h2>Galeria de Fotos 📸</h2>
+        <div class="carousel">
+            <img src="WhatsApp Image 2025-01-29 at 20.44.42.jpeg" alt="Foto 1" class="active">
+            <img src="WhatsApp Image 2025-01-29 at 20.44.43.jpeg" alt="Foto 2">
+            <img src="WhatsApp Image 2025-01-29 at 20.44.42 (2).jpeg" alt="Foto 3">
+            <img src="WhatsApp Image 2025-01-29 at 20.44.42 (1).jpeg" alt="Foto 4">
+            <button class="carousel-button prev">&#10094;</button>
+            <button class="carousel-button next">&#10095;</button>
+        </div>
+
+        <h2 id="contact">Contato 📞</h2>
+        <div class="contact">
+            <p>Entre em contato comigo para mais informações ou para agendar uma conversa.</p>
+            <p><strong>Telefone:</strong> (69) 99984-2919</p>
+            <p><strong>Email:</strong> marcylima62@gmail.com</p>
+            <p><strong>Endereço:</strong> Rua Miguel de Cervantes, 261 - Porto Velho (RO)</p>
+            <a href="https://wa.me/5569999842919" target="_blank">WhatsApp: 69 99984-2919</a>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2023 Marcilene Lima. Todos os direitos reservados.
+    </footer>
+
+    <script>
+        // Script para o carrossel de imagens
+        const carouselImages = document.querySelectorAll('.carousel img');
+        const prevButton = document.querySelector('.carousel-button.prev');
+        const nextButton = document.querySelector('.carousel-button.next');
+        let currentIndex = 0;
+
+        function showImage(index) {
+            carouselImages.forEach((img, i) => {
+                img.classList.toggle('active', i === index);
+            });
+        }
+
+        function nextImage() {
+            currentIndex = (currentIndex < carouselImages.length - 1) ? currentIndex + 1 : 0;
+            showImage(currentIndex);
+        }
+
+        // Transição automática a cada 1,5 segundos
+        setInterval(nextImage, 1500);
+
+        prevButton.addEventListener('click', () => {
+            currentIndex = (currentIndex > 0) ? currentIndex - 1 : carouselImages.length - 1;
+            showImage(currentIndex);
+        });
+
+        nextButton.addEventListener('click', () => {
+            currentIndex = (currentIndex < carouselImages.length - 1) ? currentIndex + 1 : 0;
+            showImage(currentIndex);
+        });
+
+        // Iniciar o carrossel
+        showImage(currentIndex);
+    </script>
+
+</body>
+</html>
