@@ -9,29 +9,52 @@
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background: linear-gradient(135deg, #0073e6, #00bcd4); /* Gradiente azul */
             color: #333;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
         header {
-            background-color: #0073e6; /* Azul */
+            background-color: rgba(0, 115, 230, 0.8); /* Azul com transparência */
             color: white;
             padding: 20px 0;
             text-align: center;
+            animation: slideDown 1s ease-in-out;
+        }
+        @keyframes slideDown {
+            from { transform: translateY(-100%); }
+            to { transform: translateY(0); }
         }
         header h1 {
             margin: 0;
             font-size: 2.5em;
         }
         nav {
-            background-color: #000; /* Preto */
+            background-color: rgba(0, 0, 0, 0.8); /* Preto com transparência */
             padding: 10px 0;
             text-align: center;
+            width: 100%; /* Ocupa toda a largura */
+            z-index: 1000; /* Garante que a nav bar fique acima de outros elementos */
+            animation: slideUp 1s ease-in-out;
+            transition: top 0.3s ease; /* Transição suave ao fixar */
+        }
+        nav.fixed {
+            position: fixed;
+            top: 0;
+        }
+        @keyframes slideUp {
+            from { transform: translateY(100%); }
+            to { transform: translateY(0); }
         }
         nav a {
             color: white;
             text-decoration: none;
             margin: 0 15px;
             font-size: 1.1em;
+            transition: color 0.3s ease;
         }
         nav a:hover {
             color: #0073e6; /* Azul */
@@ -40,9 +63,14 @@
             width: 80%;
             margin: 20px auto;
             padding: 20px;
-            background-color: white;
+            background-color: rgba(255, 255, 255, 0.9); /* Branco com transparência */
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
+            animation: fadeInUp 1s ease-in-out;
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         .profile-img {
             display: block;
@@ -51,10 +79,16 @@
             width: 150px;
             height: 150px;
             object-fit: cover;
+            animation: zoomIn 1s ease-in-out;
+        }
+        @keyframes zoomIn {
+            from { transform: scale(0); }
+            to { transform: scale(1); }
         }
         h2 {
             color: #0073e6; /* Azul */
             text-align: center;
+            animation: fadeIn 1s ease-in-out;
         }
         p {
             line-height: 1.6;
@@ -62,6 +96,7 @@
         }
         .experience, .education, .skills, .contact {
             margin-bottom: 20px;
+            animation: fadeIn 1s ease-in-out;
         }
         .experience h3, .education h3, .skills h3, .contact h3 {
             color: #0073e6; /* Azul */
@@ -78,6 +113,7 @@
             color: white;
             text-decoration: none;
             border-radius: 5px;
+            transition: background-color 0.3s ease;
         }
         .contact a:hover {
             background-color: #005bb5; /* Azul mais escuro */
@@ -89,14 +125,17 @@
             margin: 20px auto;
             overflow: hidden;
             border-radius: 8px;
+            animation: fadeIn 1s ease-in-out;
         }
         .carousel img {
             width: 100%;
             display: none;
             border-radius: 8px;
+            transition: opacity 0.5s ease-in-out;
         }
         .carousel img.active {
             display: block;
+            opacity: 1;
         }
         .carousel-button {
             position: absolute;
@@ -108,6 +147,10 @@
             padding: 10px;
             cursor: pointer;
             border-radius: 50%;
+            transition: background-color 0.3s ease;
+        }
+        .carousel-button:hover {
+            background-color: rgba(0, 0, 0, 0.8);
         }
         .carousel-button.prev {
             left: 10px;
@@ -118,11 +161,22 @@
         footer {
             text-align: center;
             padding: 10px 0;
-            background-color: #000; /* Preto */
+            background-color: rgba(0, 0, 0, 0.8); /* Preto com transparência */
             color: white;
             position: fixed;
             width: 100%;
             bottom: 0;
+            animation: slideUp 1s ease-in-out;
+        }
+
+        /* Animação de destaque */
+        @keyframes highlight {
+            0% { background-color: rgba(255, 255, 0, 0.3); }
+            50% { background-color: rgba(255, 255, 0, 0.6); }
+            100% { background-color: rgba(255, 255, 0, 0.3); }
+        }
+        .highlight {
+            animation: highlight 1.5s ease-in-out;
         }
     </style>
 </head>
@@ -132,7 +186,7 @@
         <h1>Olá! Sou Marcilene Lima 📚👩‍🏫</h1>
     </header>
 
-    <nav>
+    <nav id="navBar">
         <a href="#experience">Experiência</a>
         <a href="#education">Formação</a>
         <a href="#skills">Habilidades</a>
@@ -211,7 +265,7 @@
     </div>
 
     <footer>
-        &copy; 2023 Marcilene Lima. Todos os direitos reservados.
+        &copy; 2025 Marcilene Lima. Todos os direitos reservados.
     </footer>
 
     <script>
@@ -247,6 +301,41 @@
 
         // Iniciar o carrossel
         showImage(currentIndex);
+
+        // Adicionar animação de destaque ao clicar nos links de navegação
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault(); // Evita o comportamento padrão do link
+                const targetId = link.getAttribute('href').substring(1); // Remove o #
+                const targetElement = document.getElementById(targetId);
+
+                if (targetElement) {
+                    // Rola a página até o elemento
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+
+                    // Adiciona a classe de destaque
+                    targetElement.classList.add('highlight');
+
+                    // Remove a classe de destaque após a animação
+                    setTimeout(() => {
+                        targetElement.classList.remove('highlight');
+                    }, 1500); // Duração da animação
+                }
+            });
+        });
+
+        // Fixar a nav bar ao rolar a página
+        const navBar = document.getElementById('navBar');
+        const header = document.querySelector('header');
+        const headerHeight = header.offsetHeight;
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > headerHeight) {
+                navBar.classList.add('fixed');
+            } else {
+                navBar.classList.remove('fixed');
+            }
+        });
     </script>
 
 </body>
